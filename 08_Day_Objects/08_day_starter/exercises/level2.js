@@ -57,6 +57,10 @@ console.log('users :>> ', users);
 
 let maxSkill = 0;
 let userTop = null;
+let gr50 = 0
+const mern = ['MongoDB', 'Express', 'React', 'Node'];
+let mernCount = 0;
+const mernUsers = [];
 
 console.log('users.Alex :>> ', users.Alex['skills']);
 for (const user in users) {
@@ -65,6 +69,46 @@ for (const user in users) {
       maxSkill = users[user].skills.length;
       userTop = user;
    }
+   if (users[user].isLoggedIn && users[user].points >= 50) {
+      gr50 += 1;
+   }
+
+   mernCount = 0
+   for (const skill of mern) {
+      if (!users[user].skills.includes(skill)) {
+         break;
+      }
+      else {
+         mernCount += 1;
+      }
+   }
+   if (mernCount == 4) {
+      mernUsers.push(user);
+   }
 }
 
 console.log('userTop, maxSkill :>> ', userTop, maxSkill);
+console.log('gr50 :>> ', gr50);
+console.log('mernUsers :>> ', mernUsers);
+// let newSet = new Set([1, 2, 3]);
+// let newSet2 = new Set([2, 3, 4, 5]);
+
+// console.log('newSet :>> ', newSet);
+// console.log('newSet2 :>> ', newSet2);
+
+users['Andrey'] = {
+   email: 'adrey@andrey.com',
+   skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+   age: 29,
+   isLoggedIn: false,
+   points: 30
+};
+
+console.log('users :>> ', users);
+
+console.log('Object.keys(users) :>> ', Object.keys(users));
+console.log('Object.values(users) :>> ', Object.values(users));
+
+// for (const country of countries) {
+//    console.log('name, capital :>> ', country.name, country.capital);
+// }
