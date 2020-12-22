@@ -40,7 +40,7 @@ personAccount.addExpense(10000);
 console.log('personAccount.totalExpense() :>> ', personAccount.totalExpense());
 console.log('personAccount.accountInfo() :>> ', personAccount.accountInfo());
 
-const users = [
+const users0 = [
    {
        _id: 'ab12ex',
        username: 'Alex',
@@ -112,3 +112,21 @@ const users = [
    likes: ['fg12cy']
  }
 ]
+
+function idGen() {
+   const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+   let id = ""
+   for (let i = 0; i < 6; i++) {
+      id = id.concat(alphabet[Math.floor(Math.random() * alphabet.length)])
+   }
+   return id
+}
+
+function signUp(username, email, password) {
+   return
+}
+
+const now = new Date();
+
+console.log('now.date() :>> ', now.getDate());
+console.log('idGen() :>> ', idGen());
