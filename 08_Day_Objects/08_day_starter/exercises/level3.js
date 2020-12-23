@@ -113,6 +113,16 @@ const users0 = [
  }
 ]
 
+// signUp and signIn
+const now = new Date();
+const ids = [];
+const emails = [];
+
+for (const user of users0) {
+   ids.push(user._id);
+   emails.push(user.email)
+}
+
 function idGen() {
    const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
    let id = ""
@@ -122,11 +132,59 @@ function idGen() {
    return id
 }
 
-function signUp(username, email, password) {
-   return
+function createdAt(now) {
+   const year = now.getFullYear();
+   const month = now.getMonth() + 1;
+   const day = now.getDate();
+   const hour = now.getHours()
+   const minute = now.getMinutes()
+
+   let ampm = 'AM';
+   if (hour > 12) {
+      hour -= 12;
+      ampm = 'PM';
+   }
+
+   return `${day}/${month}/${year} ${hour}:${minute} ${ampm}`
 }
 
-const now = new Date();
+function signUp(username, email, password) {
+   let newId = idGen();
+   while (ids.includes(newId)) {
+      newId = idGen();
+   }
+   ids.push(newId);
+
+   const newUser = {
+      _id: newId,
+      username: username,
+      email: email,
+      password: password,
+      createdAt: createdAt(now),
+      isLoggedIn: false,
+  }
+
+   users0.push(newUser);
+}
 
 console.log('now.date() :>> ', now.getDate());
 console.log('idGen() :>> ', idGen());
+console.log('ids :>> ', ids);
+console.log('emails :>> ', emails);
+console.log('createdAt(now) :>> ', createdAt(now));
+
+const username = prompt('Enter your name');
+let email;
+
+do {
+   email = prompt('Enter email');
+   if (emails.includes(email)) {
+      alert('This email is being used')
+   }
+} while (emails.includes(email))
+emails.push(email);
+
+const password = prompt('Enter your password')
+signUp(username, email, password);
+
+console.log('users0 :>> ', users0);
