@@ -167,24 +167,52 @@ function signUp(username, email, password) {
    users0.push(newUser);
 }
 
+function signIn(email, password) {
+   /*
+   {
+       _id: 'ab12ex',
+       username: 'Alex',
+       email: 'alex@alex.com',
+       password: '123123',
+       createdAt:'08/01/2020 9:00 AM',
+       isLoggedIn: false
+   }
+   */
+   for (const user of users0) {
+      if (user.email === email && user.password === password) {
+         user.isLoggedIn = true; 
+         console.log(`Hello, ${user.username}!`);
+         return null
+      }
+   }
+   console.log('email or password is wrong!');
+   return null
+}
+
+function main() {
+   const username = prompt('Enter your name');
+   let email;
+
+   do {
+      email = prompt('Enter email');
+      if (emails.includes(email)) {
+         alert('This email is being used')
+      }
+   } while (emails.includes(email))
+   emails.push(email);
+   const password = prompt('Enter password')
+
+   signUp(username, email, password);
+
+   signIn(email, password);
+   signIn('sd', 'sds');
+}
+
 console.log('now.date() :>> ', now.getDate());
 console.log('idGen() :>> ', idGen());
 console.log('ids :>> ', ids);
 console.log('emails :>> ', emails);
 console.log('createdAt(now) :>> ', createdAt(now));
-
-const username = prompt('Enter your name');
-let email;
-
-do {
-   email = prompt('Enter email');
-   if (emails.includes(email)) {
-      alert('This email is being used')
-   }
-} while (emails.includes(email))
-emails.push(email);
-
-const password = prompt('Enter your password')
-signUp(username, email, password);
-
 console.log('users0 :>> ', users0);
+
+main()
