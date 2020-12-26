@@ -136,7 +136,7 @@ function createdAt(now) {
    const year = now.getFullYear();
    const month = now.getMonth() + 1;
    const day = now.getDate();
-   const hour = now.getHours()
+   let hour = now.getHours()
    const minute = now.getMinutes()
 
    let ampm = 'AM';
@@ -189,6 +189,51 @@ function signIn(email, password) {
    return null
 }
 
+class persona {
+   constructor(username, id) {
+      this.username = username;
+      this.id = id
+   }
+
+   rateProduct(productName, rate) {
+      const rating = {
+         userId: this.id,
+         rate: rate
+      }
+
+      for (const product of products) {
+         if (product.name === productName) {
+            product.ratings.push(rating)
+         }
+      }
+   }
+
+   likeProduct(productName) {
+      for (const product of products) {
+         if (product.name === productName) {
+            if (product.likes.includes(this.id)) {
+               const pos = product.likes.indexOf(this.id);
+               product.likes.splice(pos, 1);
+            } else product.likes.push(this.id);
+         }
+      } 
+   }
+}
+
+function averageRating(productName) {
+   let rating = 0;
+   let countRates = 0;
+   for (const prod of products) {
+      if (prod.name === productName) {
+         for (const rateObj of prod.ratings) {
+            countRates += 1;
+            rating += rateObj.rate;
+         }
+      }
+   }
+   console.log(`${productName} average rating is ${(rating / countRates).toFixed(2)}`);
+}
+
 function main() {
    const username = prompt('Enter your name');
    let email;
@@ -206,6 +251,22 @@ function main() {
 
    signIn(email, password);
    signIn('sd', 'sds');
+
+   let userId;
+   for (const user of users0) {
+      if (user.username === username) {
+         userId = user._id;
+      }
+   }
+
+   pers = new persona(username, userId);
+   pers.rateProduct('TV', 4) ;
+   pers.likeProduct('Laptop')
+   pers.likeProduct('TV')
+   pers.likeProduct('TV')
+   console.log('pers :>> ', pers);
+   console.log('products :>> ', products);
+   averageRating('TV')
 }
 
 console.log('now.date() :>> ', now.getDate());
@@ -216,3 +277,16 @@ console.log('createdAt(now) :>> ', createdAt(now));
 console.log('users0 :>> ', users0);
 
 main()
+
+// The products array has three elements and each of them has six properties. a. Create a function called rateProduct which rates the product b. Create a function called averageRating which calculate the average rating of a product
+
+/*
+{
+   _id: 'hedfcg',
+   name: 'TV',
+   description: 'Smart TV:Procaster',
+   price: 400,
+   ratings: [{ userId: 'fg12cy', rate: 5 }],
+   likes: ['fg12cy']
+ }
+ */
