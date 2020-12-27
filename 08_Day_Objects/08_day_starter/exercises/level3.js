@@ -136,7 +136,7 @@ function createdAt(now) {
    const year = now.getFullYear();
    const month = now.getMonth() + 1;
    const day = now.getDate();
-   const hour = now.getHours()
+   let hour = now.getHours()
    const minute = now.getMinutes()
 
    let ampm = 'AM';
@@ -167,24 +167,126 @@ function signUp(username, email, password) {
    users0.push(newUser);
 }
 
+function signIn(email, password) {
+   /*
+   {
+       _id: 'ab12ex',
+       username: 'Alex',
+       email: 'alex@alex.com',
+       password: '123123',
+       createdAt:'08/01/2020 9:00 AM',
+       isLoggedIn: false
+   }
+   */
+   for (const user of users0) {
+      if (user.email === email && user.password === password) {
+         user.isLoggedIn = true; 
+         console.log(`Hello, ${user.username}!`);
+         return null
+      }
+   }
+   console.log('email or password is wrong!');
+   return null
+}
+
+class persona {
+   constructor(username, id) {
+      this.username = username;
+      this.id = id
+   }
+
+   rateProduct(productName, rate) {
+      const rating = {
+         userId: this.id,
+         rate: rate
+      }
+
+      for (const product of products) {
+         if (product.name === productName) {
+            product.ratings.push(rating)
+         }
+      }
+   }
+
+   likeProduct(productName) {
+      for (const product of products) {
+         if (product.name === productName) {
+            if (product.likes.includes(this.id)) {
+               const pos = product.likes.indexOf(this.id);
+               product.likes.splice(pos, 1);
+            } else product.likes.push(this.id);
+         }
+      } 
+   }
+}
+
+function averageRating(productName) {
+   let rating = 0;
+   let countRates = 0;
+   for (const prod of products) {
+      if (prod.name === productName) {
+         for (const rateObj of prod.ratings) {
+            countRates += 1;
+            rating += rateObj.rate;
+         }
+      }
+   }
+   console.log(`${productName} average rating is ${(rating / countRates).toFixed(2)}`);
+}
+
+function main() {
+   const username = prompt('Enter your name');
+   let email;
+
+   do {
+      email = prompt('Enter email');
+      if (emails.includes(email)) {
+         alert('This email is being used')
+      }
+   } while (emails.includes(email))
+   emails.push(email);
+   const password = prompt('Enter password')
+
+   signUp(username, email, password);
+
+   signIn(email, password);
+   signIn('sd', 'sds');
+
+   let userId;
+   for (const user of users0) {
+      if (user.username === username) {
+         userId = user._id;
+      }
+   }
+
+   pers = new persona(username, userId);
+   pers.rateProduct('TV', 4) ;
+   pers.likeProduct('Laptop')
+   pers.likeProduct('TV')
+   pers.likeProduct('TV')
+   console.log('pers :>> ', pers);
+   console.log('products :>> ', products);
+   averageRating('TV')
+}
+
 console.log('now.date() :>> ', now.getDate());
 console.log('idGen() :>> ', idGen());
 console.log('ids :>> ', ids);
 console.log('emails :>> ', emails);
 console.log('createdAt(now) :>> ', createdAt(now));
-
-const username = prompt('Enter your name');
-let email;
-
-do {
-   email = prompt('Enter email');
-   if (emails.includes(email)) {
-      alert('This email is being used')
-   }
-} while (emails.includes(email))
-emails.push(email);
-
-const password = prompt('Enter your password')
-signUp(username, email, password);
-
 console.log('users0 :>> ', users0);
+
+main()
+
+// The products array has three elements and each of them has six properties. a. Create a function called rateProduct which rates the product b. Create a function called averageRating which calculate the average rating of a product
+
+/*
+{
+   _id: 'hedfcg',
+   name: 'TV',
+   description: 'Smart TV:Procaster',
+   price: 400,
+   ratings: [{ userId: 'fg12cy', rate: 5 }],
+   likes: ['fg12cy']
+ }
+ */
