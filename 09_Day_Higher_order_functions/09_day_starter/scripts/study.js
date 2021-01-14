@@ -53,7 +53,7 @@ const areAllTrue = bools.every((b) => {
 
 console.log(areAllTrue) // true
 
-// find - searches for the first element sutisfying the condition
+// find - searches for the first element satisfying the condition
 
 let out = numbers.find((el) => el < 4);
 console.log('out :>> ', out);
