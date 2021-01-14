@@ -71,13 +71,13 @@ console.log(age) // 5
 //some: Check if some of the elements are similar in one aspect. It returns boolean
 
 names = ['Asabeneh', 'Mathias', 'Elias', 'Brook', '1']
-bools = [true, true, true, true]
+bools = ['true, true, true, ', 'false']
 
 const areSomeTrue = bools.some((b) => {
   return b === true
 })
 
-console.log(areSomeTrue) //true
+console.log('are some true:', areSomeTrue) //true
 const areAllStr = names.some((name) => typeof name === 'number')
 console.log(areAllStr) // false
 
