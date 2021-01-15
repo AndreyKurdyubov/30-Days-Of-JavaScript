@@ -251,6 +251,8 @@ countries = [
    'Zimbabwe'
  ]
 
+const con2 = [...countries];
+
 const isLand = countries.filter((el) => el.toLowerCase().includes('land'));
 // console.log('countries :>> ', countries);
 console.log('isLand :>> ', isLand);
@@ -299,4 +301,20 @@ console.log('greater then 7? :>> ', names.some((el) => el.length > 7));
 console.log('isLand :>> ', isLand);
 console.log('isLand.every((el) => el.includes(\'land\')) :>> ', isLand.every((el) => el.includes('land')));
 
- const ind6 = countries.find((el) =>)
+let ind6 = countries.findIndex((el) => el.length === 6);
+let con6 = countries.find((el) => el.length === 6);
+
+console.log('ind6 :>> ', ind6);
+console.log('con6 :>> ', con6);
+
+ind6 = con2.findIndex((el) => el.length === 6);
+con6 = con2.find((el) => el.length === 6);
+
+console.log('ind6 :>> ', ind6);
+console.log('con6 :>> ', con6);
+
+const Norw = con2.findIndex(el => el === 'Norway1');
+const Russ = con2.findIndex(el => el === 'Russia');
+
+console.log('Norw :>> ', Norw);
+console.log('Russ :>> ', Russ);
