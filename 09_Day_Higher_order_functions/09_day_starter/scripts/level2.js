@@ -52,7 +52,7 @@ let letObj = [];
 [...alphabet].forEach(lett=> letObj.push({letter: lett.toUpperCase(), number: firstLetter(lett)}));
 console.log('letObj :>> ', letObj);
 
-// 5-6. first and ten countries
+// 5-6. first and last ten countries
 function getFirstTenCountries() {
    let tenNames = [];
    countries.slice(0, 10).forEach(el => tenNames.push(el.name));
@@ -77,3 +77,6 @@ sortedLetObj.sort(function (a, b) {
 
 console.log('sortedLetObj :>> ', sortedLetObj);
 console.log('sortedLetObj[0] :>> ', sortedLetObj[0]);
+
+console.log('alphabet :>> ', alphabet);
+console.log('[...alphabet] :>> ', [...alphabet]);

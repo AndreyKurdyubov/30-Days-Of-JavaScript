@@ -26,7 +26,7 @@ console.log('countries :>> ', countries);
 const coLen = countries.map((el) => el.length);
 console.log('coLen :>> ', coLen);
 
-const squares= numbers.map((el) => el * el);
+const squares = numbers.map((el) => new Object({el: el * el}));
 console.log('squares :>> ', squares);
 console.log('numbers :>> ', numbers);
 
