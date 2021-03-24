@@ -55,7 +55,7 @@ function tenMostFrequentWords(text) {
 
    const arrWords = Object.entries(wordCounts).sort((a, b) => b[1] - a[1]);
    // console.log('arrWords :>> ', arrWords);
-   return arrWords.map(pair => ({[pair[0]]: pair[1]}));
+   return arrWords.map(pair => ({[pair[0]]: pair[1]})).slice(0, 10);
 }
 
 let paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`
@@ -75,3 +75,14 @@ console.log(tenMostFrequentWords(paragraph))
 // const arr = Object.entries(obj).map(pair => ({[pair[0]]: pair[1]}));
 // console.log('obj :>> ', obj);
 // console.log('arr :>> ', arr);
+
+// Write a function which cleans text. Clean the following text. After cleaning, count three most frequent words in the string.
+const sentence = '%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?';
+
+function cleanText(text) {
+   const pattern = /[^\w .!?]/g;
+   return text.replace(pattern, '');
+}
+ console.log(cleanText(sentence))
+
+ console.log('tenMostFrequentWords(cleanText(sentence)) :>> ', tenMostFrequentWords(cleanText(sentence)).slice(0, 3));
