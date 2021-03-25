@@ -100,3 +100,63 @@ class Statistics {
 const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26];
 const stats = new Statistics(ages);
 stats.getInfo();
+
+class PersonAccount {
+   constructor(firstname, lastname, incomes, expenses) {
+      this._firstname = firstname;
+      this._lastname = lastname;
+      this._incomes = incomes;
+      this._expenses = expenses;
+   }
+
+   totalIncome() {
+      return this.getIncomes.reduce((prev, curr) => prev+curr, 0);
+   }
+
+   totalExpenses() {
+      return this.getExpenses.reduce((prev, curr) => prev+curr, 0);
+   }
+
+   accountBalance() {
+      return this.totalIncome() - this.totalExpenses();
+   }
+
+   accountInfo() {
+      return `${this.getFirstname} ${this.getLastname}. Balance: ${this.accountBalance()}`
+   }
+
+
+   get getFirstname() {
+      return this._firstname;
+   }
+   get getLastname() {
+      return this._lastname;
+   }
+   get getIncomes() {
+      return this._incomes;
+   }
+   get getIncomes() {
+      return this._incomes;
+   }
+   get getExpenses() {
+      return this._expenses;
+   }
+
+   set addIncome(newIncome) {
+      this._incomes.push(newIncome);
+   }
+   set addExpense(newExpense) {
+      this._expenses.push(newExpense);
+   }
+}
+
+const myInc = [10, 20, 5, 15, 64, 1];
+const myExp = [6, 7, 10];
+const me = new PersonAccount('Andrey', 'Kurdyubov', myInc, myExp);
+me.addIncome = 100;
+me.addExpense = 20;
+console.log('me.accountInfo() :>> ', me.accountInfo());
+console.log('me.getExpenses :>> ', me.getExpenses);
+console.log('me.getIncomes :>> ', me.getIncomes);
+console.log('me.totalIncomes() :>> ', me.totalIncome());
+console.log('me.totalExpenses() :>> ', me.totalExpenses());
