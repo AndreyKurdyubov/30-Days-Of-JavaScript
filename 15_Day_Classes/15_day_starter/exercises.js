@@ -106,7 +106,7 @@ class Dog extends Animal {
    get getBreed() {
       return this._breed;
    }
-   set setBreed(NewBreed) {
+   set setBreed(newBreed) {
       console.log(`The breed has changed from ${this.getBreed} to ${newBreed}`);
       this._breed = newBreed;
    }
@@ -115,4 +115,4 @@ class Dog extends Animal {
 const dog = new Dog('Milky', 4, 'white', 'Husky');
 console.log('dog.getInfo() :>> ', dog.getInfo());
 
-//  level 3
+
