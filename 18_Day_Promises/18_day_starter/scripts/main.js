@@ -14,27 +14,27 @@ const catsAPI = 'https://api.thecatapi.com/v1/breeds'
 // Read the countries api and find out the 10 largest countries
 // Read the countries api and count total number of languages in the world used as officials.
 
-fetch(countriesAPI)
-   .then(response => response.json())
-   .then(data => {
-      for (let country of data.slice(0, 10)) {
-         console.log('country:>> ', country.name, country.capital, country.languages, country.population, country.area);
-      }
-   })
-   .catch(error => console.log(error));
+// fetch(countriesAPI)
+//    .then(response => response.json())
+//    .then(data => {
+//       for (let country of data.slice(0, 10)) {
+//          console.log('country:>> ', country.name, country.capital, country.languages, country.population, country.area);
+//       }
+//    })
+//    .catch(error => console.log(error));
 
-const fetchData = async function(url) {
-   try {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log('data[0] :>> ', data[0]);
-   }
-   catch (err) {
-      console.log('err :>> ', err);
-   }
-}
+// const fetchData = async function(url) {
+//    try {
+//       const response = await fetch(url);
+//       const data = await response.json();
+//       console.log('data[0] :>> ', data[0]);
+//    }
+//    catch (err) {
+//       console.log('err :>> ', err);
+//    }
+// }
 
-fetchData(countriesAPI+'d');
+// fetchData(countriesAPI+'d');
 
 const fetchCats = async (url, names, weights) => {
    try {
@@ -45,6 +45,7 @@ const fetchCats = async (url, names, weights) => {
          weights.push(element.weight);
       });
       console.log('data :>> ', data[0]); 
+      // return catWeights
    }
    catch (err) {
       console.log('err :>> ', err);
@@ -55,19 +56,25 @@ let catNames =[];
 let catWeights = [];
 let avWght = 0;
 fetchCats(catsAPI, catNames, catWeights);
+
 console.log('catNames :>> ', catNames);
 console.log('catWeights :>> ', catWeights);
+console.log('catWeights.length :>> ', catWeights.length);
 catWeights.forEach(el => {
-      
+      console.log('el :>> ', el);
+      // let pattern = /\d+/g;
+      // let matches = el['metric'].match(pattern);
+      // console.log('matches :>> ', matches);
+      // avWght += matches[0];
    })
 console.log('metric average cat weight :>> ', avWght);
 
 
-let catNames2 = [];
-fetch(catsAPI)
-   .then(response => response.json())
-   .then(data => {
-      data.forEach(el => catNames2.push(el.name))
-      console.log('catNames2 :>> ', catNames2);
-   })
-   .catch(err => console.log('err :>> ', err));
+// let catNames2 = [];
+// fetch(catsAPI)
+//    .then(response => response.json())
+//    .then(data => {
+//       data.forEach(el => catNames2.push(el.name))
+//       console.log('catNames2 :>> ', catNames2);
+//    })
+//    .catch(err => console.log('err :>> ', err));
