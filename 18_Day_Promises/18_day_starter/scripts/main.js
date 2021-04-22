@@ -36,38 +36,56 @@ const catsAPI = 'https://api.thecatapi.com/v1/breeds'
 
 // fetchData(countriesAPI+'d');
 
-const fetchCats = async (url, names, weights) => {
+const fetchCats = async (url) => {
    try {
       let response = await fetch(url);
       let data = await response.json();
-      data.forEach(element => {
-         names.push(element.name);
-         weights.push(element.weight);
-      });
-      console.log('data :>> ', data[0]); 
-      // return catWeights
+      // data.forEach(element => {
+      //    names.push(element.name);
+      //    weights.push(element.weight);
+      // });
+      // console.log('data :>> ', data[0]); 
+      let catNames = [];
+      let catWeights = [];
+      data.forEach(el=> {
+         catNames.push(el.name);
+         catWeights.push(el.weight);
+      })
+      // console.log('data :>> ', data);
+      // console.log('catNames, catWeights :>> ', catNames, catWeights);
+      return [catNames, catWeights]
    }
    catch (err) {
       console.log('err :>> ', err);
    }
 }
 
-let catNames =[];
-let catWeights = [];
-let avWght = 0;
-fetchCats(catsAPI, catNames, catWeights);
+// let avWght = 0;
+let cats = fetchCats(catsAPI);
+cats.then(([nam, weight]) => {
+   // console.log('result :>> ', result);
+   console.log('nam, weight :>> ', nam, weight);
+   let patt = /\d+/g;
+   let avWt = 0;
+   weight.forEach(el => {
+      let matc = el.metric.match(patt);
+      avWt += (Number(matc[0]) + Number(matc[1])) / 2;
+   });
+   avWt /= weight.length;
+   console.log('avWt :>> ', avWt.toPrecision(2));
+})
 
-console.log('catNames :>> ', catNames);
-console.log('catWeights :>> ', catWeights);
-console.log('catWeights.length :>> ', catWeights.length);
-catWeights.forEach(el => {
-      console.log('el :>> ', el);
+// console.log('catNames :>> ', catNames);
+// console.log('catWeights :>> ', catWeights);
+// console.log('catWeights.length :>> ', catWeights.length);
+// catWeights.forEach(el => {
+//       console.log('el :>> ', el);
       // let pattern = /\d+/g;
       // let matches = el['metric'].match(pattern);
       // console.log('matches :>> ', matches);
       // avWght += matches[0];
-   })
-console.log('metric average cat weight :>> ', avWght);
+//    })
+// console.log('metric average cat weight :>> ', avWght);
 
 
 // let catNames2 = [];
