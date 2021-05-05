@@ -27,6 +27,22 @@
       pars[2].setAttribute('id', 'third');
       pars[3].setAttribute('class', 'fourth')
       pars[1].classList.add('one-more');
+
+      Array.from(pars).map((el, ind) => {
+         switch (ind % 2) {
+            case 0: 
+               el.style.color = 'green';
+               break;
+            default: 
+               el.style.color = 'red';
+         }
+      });
+
+      pars.forEach((el, ind) => {
+         el.id = `id${ind}`;
+         el.classList.add('class${id}');
+         el.textContent = `This is the ${ind+1}th paragraph`
+      })
    </script>
 </body>
 </html>
