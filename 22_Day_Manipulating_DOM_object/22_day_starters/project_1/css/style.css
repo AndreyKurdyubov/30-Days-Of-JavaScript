@@ -1,0 +1,67 @@
+* {
+   box-sizing: border-box;
+   /* border: 1px solid red !important; */
+}
+
+body {
+   font-size: 24px;
+   font-family: Roboto, sans-serif;
+}
+
+h1 {
+   font-size: 1em;
+   text-align: center;
+   color: salmon;
+}
+
+.wrapper {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin: auto;
+   background-color: lightgrey;
+   width: 100%;
+}
+
+.block {
+   /* padding: 10%; */
+   width: 15.5%;
+   margin: 0.5%;
+   background-color: gold;
+   font-size: 0.5em;
+   text-align: center;
+}
+
+@media only screen and (min-width: 250px) {
+   h1 {
+      font-size: 1.5em;
+   }
+   .block {
+      font-size: 1em;
+   }
+}
+
+@media only screen and (min-width: 600px) {
+   h1 {
+      font-size: 2em;
+   }
+   .wrapper {
+      width: 75%;
+      background-color: lightblue;
+   }
+   .block {
+      /* width: 13.33%; */
+   }
+}
+   
+@media only screen and (min-width: 1024px) {
+   .wrapper {
+      width: 60%;
+      background-color: mediumaquamarine;
+   }
+   .block {
+       /* width: 8.33%; */
+   }
+}
+
+
