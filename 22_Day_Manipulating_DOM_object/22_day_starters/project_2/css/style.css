@@ -1,20 +1,21 @@
 body {
-   font-size: 24px;
+   font-size: 16px;
    font-family: Roboto, sans-serif;
 }
 
 h2, h3, h4 {
    text-align: center;
-   color: mediumaquamarine;
    margin: 0.1em;
 }
 
 h2 {
    font-size: 3em;
+   color: mediumaquamarine;
 }
 
 h3 {
    font-size: 0.5em;
+   color: indigo;
 }
 
 h4 {
@@ -35,12 +36,13 @@ h4 {
    border: 2px solid grey;
    border-radius: 0.5em;
    margin: 0.1em;
-   /* text-align: center;
-   vertical-align: middle;
-   line-height: 15%; */
+
    display: flex;
    justify-content: center;
    align-items: center;
+
+   font-size: 0.75em;
+   text-align: center;
 }
 
 .countries-wrapper:before {
@@ -49,8 +51,17 @@ h4 {
    padding-top: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
    .countries-container {
       width: 70%;
+   }
+   body {
+      font-size: 20px;
+   }
+}
+
+@media only screen and (min-width: 1024px) {
+   body {
+      font-size: 24px;
    }
 }
