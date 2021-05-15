@@ -1,0 +1,56 @@
+body {
+   font-size: 24px;
+   font-family: Roboto, sans-serif;
+}
+
+h2, h3, h4 {
+   text-align: center;
+   color: mediumaquamarine;
+   margin: 0.1em;
+}
+
+h2 {
+   font-size: 3em;
+}
+
+h3 {
+   font-size: 0.5em;
+}
+
+h4 {
+   color: royalblue;
+   font-size: 0.75em;
+}
+
+.countries-container {
+   margin: 1em auto;
+   width: 100%;
+   display: flex;
+   flex-flow: row wrap;
+}
+
+.countries-wrapper {
+   flex-basis: 15%;
+   height: auto;
+   border: 2px solid grey;
+   border-radius: 0.5em;
+   margin: 0.1em;
+   /* text-align: center;
+   vertical-align: middle;
+   line-height: 15%; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.countries-wrapper:before {
+   content: '';
+   display: block;
+   padding-top: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+   .countries-container {
+      width: 70%;
+   }
+}
