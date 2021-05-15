@@ -28,10 +28,11 @@ h4 {
    width: 100%;
    display: flex;
    flex-flow: row wrap;
+   /* justify-content: space-between; */
 }
 
 .countries-wrapper {
-   flex-basis: 15%;
+   flex: 1 0 15%;
    height: auto;
    border: 2px solid grey;
    border-radius: 0.5em;
