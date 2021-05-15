@@ -17,18 +17,20 @@ h1.appendChild(spanYear);
 
 h3.innerHTML = '<a href="https://github.com/Asabeneh/30-Days-Of-JavaScript">30DaysOfJavaScript Challenge</a>';
 
-h2.innerHTML = `${time()}`;
+h2.innerHTML = `${time(now)}`;
 
 wrapper.appendChild(h1);
 wrapper.appendChild(h3);
 wrapper.appendChild(h2);
 
 let changeColor = setInterval(() => {
+                     const now = new Date();
+                     h2.innerHTML = `${time(now)}`;
                      h2.style.backgroundColor = newColor();
                      spanYear.style.color = newColor();
                   }, 1000);
 
-function time() {
+function time(now) {
    const mths = [
       'January',
       'February',
