@@ -15,13 +15,13 @@ h1 {
 
 h2 {
    width: 20%;
-   margin: auto;
-   padding:0.5em;
+   margin: 1em auto;
+   padding: 0.5em;
    font-size: 0.5em;
 }
 
 h3 {
-   font-size: 0.5em;
+   font-size: 0.7em;
 }
 
 #year {
@@ -32,6 +32,27 @@ h3 {
    width: 100%;
    margin: auto;
    background-color: lightgrey;
+}
+
+.courses {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1.5em;
+   margin-top: 0.2em;
+   font-size: 0.5em;
+}
+
+.done {
+   background-color: green;
+}
+
+.ongoing {
+   background-color: gold;
+}
+
+.coming {
+   background-color: tomato;
 }
 
 @media only screen and (min-width: 768px) {
