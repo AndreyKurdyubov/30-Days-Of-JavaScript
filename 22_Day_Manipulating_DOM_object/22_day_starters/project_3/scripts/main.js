@@ -24,20 +24,7 @@ wrapper.appendChild(h3);
 wrapper.appendChild(h2);
 
 // const python = document.createElement('div');
-// const js = document.createElement('div');
-// const web = document.createElement('div');
-// const react = document.createElement('div');
-// const reactNative = document.createElement('div');
-// const fullstack = document.createElement('div');
-// const ML = document.createElement('div');
-
 // python.classList.add('courses', 'done');
-// js.classList.add('courses', 'ongoing');
-// web.classList.add('courses', 'coming');
-// react.classList.add('courses', 'coming');
-// reactNative.classList.add('courses', 'coming');
-// fullstack.classList.add('courses', 'coming');
-// ML.classList.add('courses', 'coming');
 
 let challenges = asabenehChallenges2020['challenges'];
 
@@ -79,7 +66,46 @@ challenges.forEach(challenge => {
    wrapper.appendChild(newDiv);
 });
 
-const title = document.createElement('div');
+const title = document.createElement('h3');
+
+title.textContent = `
+${asabenehChallenges2020.author.firstName} ${asabenehChallenges2020.author.lastName}
+`;
+
+title.style.cssText = `
+font-size: 1em;
+font-weight: bold;
+margin-bottom: 0.2em;
+`;
+wrapper.appendChild(title);
+
+const social = document.createElement('div');
+social.style.cssText = `
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+wrapper.appendChild(social);
+
+asabenehChallenges2020.author.socialLinks.forEach(el => {
+   if (el.src) {
+      const a = document.createElement('a');
+      const img = document.createElement('img');
+      
+      a.setAttribute('href', el.url);
+      img.setAttribute('src', el.src);
+      img.setAttribute('alt', el.social);
+      img.setAttribute('width', '25px');
+      img.setAttribute('height', '25px');
+      img.setAttribute('alt', el.social);
+      img.style.cssText = `
+      display: block;
+      margin: auto 0.2em;
+      `;
+      a.appendChild(img);
+      social.appendChild(a);
+   }
+});
 
 let changeColor = setInterval(() => {
    const now = new Date();

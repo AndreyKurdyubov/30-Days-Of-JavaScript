@@ -31,7 +31,7 @@ h3 {
 .wrapper {
    width: 100%;
    margin: auto;
-   background-color: lightgrey;
+   /* background-color: lightgrey; */
 }
 
 .courses {
