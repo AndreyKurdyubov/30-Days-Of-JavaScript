@@ -91,7 +91,7 @@ asabenehChallenges2020.author.socialLinks.forEach(el => {
    if (el.src) {
       const a = document.createElement('a');
       const img = document.createElement('img');
-      
+
       a.setAttribute('href', el.url);
       img.setAttribute('src', el.src);
       img.setAttribute('alt', el.social);
@@ -106,6 +106,37 @@ asabenehChallenges2020.author.socialLinks.forEach(el => {
       social.appendChild(a);
    }
 });
+
+const about = document.createElement('p');
+about.style.textAlign = 'center';
+about.textContent = asabenehChallenges2020.author.bio;
+
+wrapper.appendChild(about);
+
+const lists = document.createElement('div');
+lists.style.cssText = `
+display: flex;
+justify-content: space-around;
+`;
+
+const titles = document.createElement('div');
+const titlesSpan = document.createElement('span');
+titlesSpan.style.fontWeight = 'bold';
+titlesSpan.textContent = 'Titles';
+
+const titlesList = document.createElement('ul');
+
+asabenehChallenges2020.author.titles.forEach(el => {
+   const li = document.createElement('li');
+   li.style.marker = el[0];
+   li.textContent = el[1];
+   titlesList.appendChild(li);
+});
+
+titles.appendChild(titlesSpan);
+titles.appendChild(titlesList);
+wrapper.appendChild(titles);
+
 
 let changeColor = setInterval(() => {
    const now = new Date();
