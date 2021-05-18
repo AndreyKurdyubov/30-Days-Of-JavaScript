@@ -128,15 +128,79 @@ const titlesList = document.createElement('ul');
 
 asabenehChallenges2020.author.titles.forEach(el => {
    const li = document.createElement('li');
-   li.style.marker = el[0];
-   li.textContent = el[1];
+   li.textContent = `${el[0]} ${el[1]}`;
    titlesList.appendChild(li);
 });
 
 titles.appendChild(titlesSpan);
 titles.appendChild(titlesList);
-wrapper.appendChild(titles);
 
+const skills = document.createElement('div');
+const skillsSpan = document.createElement('span');
+skillsSpan.style.fontWeight = 'bold';
+skillsSpan.textContent = 'Skills';
+
+const skillsList = document.createElement('ul');
+
+asabenehChallenges2020.author.skills.forEach(el => {
+   const li = document.createElement('li');
+   li.textContent = `+ ${el}`;
+   skillsList.appendChild(li);
+});
+
+skills.appendChild(skillsSpan);
+skills.appendChild(skillsList);
+
+const qual = document.createElement('div');
+const qualSpan = document.createElement('span');
+qualSpan.style.fontWeight = 'bold';
+qualSpan.textContent = 'Qualifications';
+
+const qualList = document.createElement('ul');
+
+asabenehChallenges2020.author.qualifications.forEach(el => {
+   const li = document.createElement('li');
+   li.textContent = `* ${el}`;
+   qualList.appendChild(li);
+});
+
+qual.appendChild(qualSpan);
+qual.appendChild(qualList);
+
+lists.appendChild(titles);
+lists.appendChild(skills);
+lists.appendChild(qual);
+wrapper.appendChild(lists);
+
+const keywords = document.createElement('span');
+keywords.style.fontWeight = 'bold';
+keywords.textContent = 'Keywords';
+keywords.style.marginLeft = '3em';
+wrapper.appendChild(keywords);
+
+const tags = document.createElement('div');
+tags.style.cssText = `
+margin: auto 3em;
+displey: flex;
+justify-content: space-around;
+flex-wrap: wrap; 
+`;
+
+asabenehChallenges2020.keywords.forEach(el => {
+   const kw = document.createElement('span');
+   kw.textContent = `# ${el}`;
+   kw.style.cssText = `
+   display: inline-block;
+   background-color: ${newColor()};
+   border-radius: 10px;
+   font-size: 0.7em;
+   padding: 0px 3px;
+   margin: auto 3px;
+   `;
+   tags.appendChild(kw);
+});
+
+wrapper.appendChild(tags);
 
 let changeColor = setInterval(() => {
    const now = new Date();
