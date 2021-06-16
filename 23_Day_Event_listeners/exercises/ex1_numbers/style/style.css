@@ -1,0 +1,7 @@
+.wrapper {
+   margin: auto;
+   width: 800px;
+   background-color: lightgrey;
+   display: flex;
+   justify-content: flex-start;
+}
