@@ -16,7 +16,7 @@ h1 {
 
 .wrapper {
    display: flex;
-   justify-content: space-between;
+   /* justify-content: space-between; */
    flex-wrap: wrap;
    margin: auto;
    background-color: lightgrey;
@@ -25,11 +25,21 @@ h1 {
 
 .block {
    /* padding: 10%; */
-   width: 15.5%;
+   flex: 0 0 15.666%;
    margin: 0.5%;
    background-color: gold;
    font-size: 0.5em;
-   text-align: center;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* text-align: center; */
+}
+
+.block::before {
+   content: "";
+   display: block;
+   padding-top: 100%;
 }
 
 @media only screen and (min-width: 250px) {

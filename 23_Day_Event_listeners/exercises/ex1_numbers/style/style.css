@@ -1,7 +1,40 @@
+body {
+   font-size: 32pt;
+   font-family: Roboto;
+   box-sizing: border-box;
+}
+
 .wrapper {
    margin: auto;
    width: 800px;
    background-color: lightgrey;
    display: flex;
-   justify-content: flex-start;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.block {
+   flex: 0 0 15%;
+   background-color: azure;
+   margin: 0.5%;
+   border: 2px solid grey;
+   border-radius: 5%;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   /* text-align: center; */
+}
+
+.block:before {
+   content: "";
+   display: block;
+   padding-top: 100%;
+}
+
+.empty {
+   /* content: ""; */
+   background-color: lightgrey;
+   border-color: lightgrey;
 }
