@@ -4,6 +4,42 @@ body {
    box-sizing: border-box;
 }
 
+h1 {
+   color: lightgreen;
+   text-align: center;
+   font-size: 2em;
+}
+
+form {
+   /* width: 500px; */
+   margin: -70px auto 20px;
+   display: flex;
+   flex-wrap: wrap;
+   width: 600px;
+   /* margin: auto; */
+}
+
+input {
+   font-size: 0.4em;
+   margin: 1%;
+   flex: 3 0 10%;
+}
+
+button {
+   font-size: 0.4em;
+   background-color: lightsalmon;
+   margin: 1%;
+   flex: 1 0 10%;
+}
+
+label {
+   flex-basis: 10%;
+   margin: auto;
+   text-align: center;
+   font-size: 0.3em;
+   color: red;
+}
+
 .wrapper {
    margin: auto;
    width: 800px;
