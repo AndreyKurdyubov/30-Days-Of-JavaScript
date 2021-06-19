@@ -1,0 +1,27 @@
+body {
+   font-family: Roboto;
+   font-size: 32pt;
+}
+
+div {
+   margin: auto;
+   border: 2pt solid darkgray; 
+   box-shadow: 2pt 2pt 5pt green;
+
+   text-align: center;
+}
+
+.banner {
+   width: 400px;
+   position: fixed;
+   top: 30%;
+   left: 35%;
+}
+
+.code {
+   width: 200px;
+   position: fixed;
+   top: 45%;
+   left: 45%;
+   visibility: hidden;
+}
