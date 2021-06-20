@@ -33,4 +33,10 @@ button {
    width: 1400px;
    margin: auto;
    background-color: rgb(200, 200, 200, 0.2);
+   display: flex;
+   justify-content: center;
+}
+
+.flex-item {
+
 }
