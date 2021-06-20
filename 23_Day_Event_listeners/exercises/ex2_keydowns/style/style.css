@@ -5,23 +5,30 @@ body {
 
 div {
    margin: auto;
-   border: 2pt solid darkgray; 
-   box-shadow: 2pt 2pt 5pt green;
 
    text-align: center;
 }
 
-.banner {
-   width: 400px;
+.container {
    position: fixed;
+   width: 400px;
    top: 30%;
    left: 35%;
+   
+}
+
+.banner {
+   width: 400px;
+   border: 2pt solid darkgray; 
+   box-shadow: 2pt 2pt 5pt green;
 }
 
 .code {
    width: 200px;
-   position: fixed;
-   top: 45%;
-   left: 45%;
+   margin-top: 5pt;
+
+   border: 2pt solid darkgray; 
+   box-shadow: 2pt 2pt 5pt green;
+
    visibility: hidden;
 }
