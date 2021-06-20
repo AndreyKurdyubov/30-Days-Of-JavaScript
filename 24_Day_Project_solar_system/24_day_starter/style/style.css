@@ -1,0 +1,36 @@
+body {
+   font-family: Montserrat;
+   /* font-family: sans-serif; */
+   /* background: url(images/mars.png) repeat; */
+   background: url(../images/galaxy.gif) repeat black;
+}
+
+h1 {
+   font-size: 48px;
+   color: lightgray;
+   text-align: center;
+}
+
+.input-field {
+   border: 2pt solid white;
+   width: 800px;
+   margin: auto;
+   display: flex;
+   margin-bottom: 32px;
+}
+
+input, select, button {
+   flex-grow: 1;
+   font-size: 20px;
+   color: darkslategrey;
+}
+
+button {
+   background-color: lightyellow;
+}
+
+.flex-container {
+   width: 1400px;
+   margin: auto;
+   background-color: rgb(200, 200, 200, 0.2);
+}
